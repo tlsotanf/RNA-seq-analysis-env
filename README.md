@@ -22,6 +22,49 @@ Windows-based **RStudio workflow**.
 
 This project adopts the following strategy:
 
+## Pipeline Design Statement
+This RNA-seq pipeline is designed as a modular and reproducible workflow
+orchestrated by Nextflow, with explicit separation between
+data processing (alignment and quantification) and downstream statistical analysis.
+
+The pipeline prioritizes robustness, transparency, and reproducibility,
+while remaining flexible for future extensions such as alternative quantification
+methods or additional quality control steps.
+
+## Design Rationale
+
+This pipeline was designed by referencing the overall structure and best practices
+of the **nf-core/rnaseq** workflow, which serves as a widely adopted community standard
+for reproducible RNA-seq analysis.
+
+Rather than reusing the nf-core pipeline directly, this project focuses on
+independently implementing a simplified and transparent RNA-seq workflow
+to deepen understanding of workflow design, tool integration, and data flow
+management using Nextflow.
+
+Key design decisions include:
+
+- **Workflow orchestration with Nextflow**  
+  to ensure scalability, parallel execution, and reproducibility across systems.
+
+- **Conda-based dependency management**  
+  to provide isolated, reproducible environments for each analysis step without
+  manual tool installation.
+
+- **Alignment-based quantification (STAR + featureCounts)**  
+  as the default strategy, prioritizing interpretability, robustness, and
+  compatibility with widely used differential expression tools such as
+  DESeq2 and edgeR.
+
+- **Clear separation between upstream processing and downstream analysis**,  
+  where computationally intensive steps are executed in a Linux environment (WSL2),
+  while statistical analysis and visualization are performed in RStudio on Windows.
+
+The nf-core/rnaseq project is acknowledged as a conceptual reference for workflow
+organization and reproducibility principles, while the implementation, tool
+selection, and parameterization in this repository are intentionally customized
+for learning and portfolio purposes.
+
 ### Analysis Strategy
 **Linux (WSL2 / Ubuntu)**  
 → Alignment, quantification, workflow orchestration  
