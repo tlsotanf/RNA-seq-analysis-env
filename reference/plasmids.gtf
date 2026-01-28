@@ -1,0 +1,3 @@
+RepCap	.	gene	321	2186	.	+	.	gene_id "RepCap"; gene_name "RepCap";
+RepCap	.	transcript	321	2186	.	+	.	gene_id "RepCap"; transcript_id "RepCap_transcript"; gene_name "RepCap";
+RepCap	.	exon	321	2186	.	+	.	gene_id "RepCap"; transcript_id "RepCap_transcript"; exon_number "1"; gene_name "RepCap";
